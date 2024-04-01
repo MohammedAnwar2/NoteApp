@@ -71,12 +71,12 @@ class AddNote extends StatelessWidget {
                 {
                     ShowLoading(context);
                   try{
-                    Get.offNamed(AppRoute.NotePage);
                     FirebaseFirestore.instance.collection("category").doc(CategoryController.instance.getSnapshot.data!.docs[CategoryController.instance.getIndex].id).collection("note").add({
                       "title": title.text,
                       "note": note.text,
                       "image": FireStorageController.instance.url??"none",
                     });
+                    Get.offAndToNamed(AppRoute.NotePage);
                     //Get.back();
                   }catch(e){
                     print("error");

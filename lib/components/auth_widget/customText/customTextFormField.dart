@@ -8,19 +8,12 @@ class CustomFormField extends StatefulWidget {
   final TextEditingController controller;
   final String? Function(String?) valid;
   final oldName;
-
   @override
   State<CustomFormField> createState() => _CustomFormFieldState();
 }
-
 class _CustomFormFieldState extends State<CustomFormField> {
-
   @override
   Widget build(BuildContext context) {
-    print("------------------");
-    print(widget.oldName.toString());
-    print(widget.controller.text);
-    print("------------------");
     return Container(
       margin: EdgeInsetsDirectional.only(top: 10.h),
       child: TextFormField(

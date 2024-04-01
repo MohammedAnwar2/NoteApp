@@ -1,20 +1,22 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-class SettingServices extends GetxService
-{
-  static SettingServices instance = Get.find();
-  late SharedPreferences sharedPreferences;
-  Future<SettingServices> init()async{
-    sharedPreferences=await SharedPreferences.getInstance();
+import 'package:get_storage/get_storage.dart';
+
+class StorageService extends GetxService {
+  static StorageService instance = Get.find<StorageService>();
+  late GetStorage _box;
+
+  Future<StorageService> init() async {
+    _box = GetStorage();
     return this;
   }
 
-  void write({required bool isLogin,required String key})
-  {
-    sharedPreferences.setBool(key, isLogin);
+  T read<T>(String key) {
+    return _box.read(key);
   }
-  bool? read({required String key})
-  {
-    return sharedPreferences.getBool(key);
+
+  void write(String key, dynamic value) async {
+    await _box.write(key, value);
   }
+
 }

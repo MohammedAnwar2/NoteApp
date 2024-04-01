@@ -39,10 +39,10 @@ class _LoginState extends State<Login> {
                     child: Container(
                       margin: EdgeInsetsDirectional.only(top: 50.h),
                       width: 80.w,
-                      height: 80.h,
+                      height: 80.w,
                       decoration: BoxDecoration(
                           color: Colors.grey.withOpacity(0.15),
-                          borderRadius: BorderRadius.all(Radius.circular(70))),
+                          borderRadius: BorderRadius.all(Radius.circular(70.r))),
                       child: Padding(
                         padding: EdgeInsets.all(17),
                         child: Image.asset(

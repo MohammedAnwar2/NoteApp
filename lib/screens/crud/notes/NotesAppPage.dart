@@ -21,7 +21,7 @@ class NotePage extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(onPressed: () {
         FireStorageController.instance.isSelected=false;
-        Get.toNamed(AppRoute.AddNote);
+        Get.offNamed(AppRoute.AddNote);
       },child: Icon(Icons.add)),
       appBar: AppBar(
         title: Text(CategoryController.instance.getSnapshot.data!.docs[CategoryController.instance.getIndex]["category"].toString()),

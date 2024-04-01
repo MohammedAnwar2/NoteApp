@@ -28,9 +28,13 @@ class UpdateCategory extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: CustomFormField(
-                  oldName:CategoryController.instance.getSnapshot.data!.docs[CategoryController.instance.getIndex]["category"].toString() ,
+                  oldName: CategoryController.instance.getSnapshot.data!
+                      .docs[CategoryController.instance.getIndex]["category"]
+                      .toString(),
                   controller: category,
-                  hintText: CategoryController.instance.getSnapshot.data!.docs[CategoryController.instance.getIndex]["category"].toString(),
+                  hintText: CategoryController.instance.getSnapshot.data!
+                      .docs[CategoryController.instance.getIndex]["category"]
+                      .toString(),
                   valid: (value) {
                     if (value!.isEmpty) {
                       return "Can't be Empty";
@@ -46,32 +50,31 @@ class UpdateCategory extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 30,horizontal: 60),
+          padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 60),
           child: ElevatedButton(
               onPressed: () {
-                if(FormKey.currentState!.validate())
-                {
-                  try{
+                if (FormKey.currentState!.validate()) {
+                  try {
                     ShowLoading(context);
-                    FirebaseFirestore.instance.collection("category").doc(CategoryController.instance.getSnapshot.data!.docs[CategoryController.instance.getIndex].id).update({
-                      "category":category.text
-                    });
+                    FirebaseFirestore.instance
+                        .collection("category")
+                        .doc(CategoryController.instance.getSnapshot.data!
+                            .docs[CategoryController.instance.getIndex].id)
+                        .update({"category": category.text});
                     Get.offAllNamed(AppRoute.EntryPage);
-                  }catch(e){
+                  } catch (e) {
                     print("error");
                   }
-
-                }else{
+                } else {
                   print("not valid");
                 }
               },
               child: Text(
                 "Save",
-                style: GoogleFonts.aBeeZee(
-                    color: Colors.black, fontSize: 14.sp),
+                style:
+                    GoogleFonts.aBeeZee(color: Colors.black, fontSize: 14.sp),
               )),
         )
-
       ]),
     );
   }

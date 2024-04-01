@@ -21,10 +21,11 @@ def flutterVersionName = localProperties.getProperty('flutter.versionName')
 if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
+
 android {
-    namespace "com.mohammed.app.ppppppp"
-    compileSdkVersion 34
-    ndkVersion "25.1.8937393"
+    namespace "com.example.note_app"
+    compileSdk 34
+    ndkVersion '25.1.8937393'
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -41,7 +42,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.mohammed.app.ppppppp"
+        applicationId "com.example.note_app"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
         minSdkVersion 21
@@ -63,6 +64,4 @@ flutter {
     source '../..'
 }
 
-dependencies {
-
-}
+dependencies {}

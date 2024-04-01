@@ -1,21 +1,37 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ppppppp/components/splashScreen.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:ppppppp/core/binding/Appbinding.dart';
 import 'package:ppppppp/core/services/services.dart';
 import 'package:ppppppp/routes/AppRoutes.dart';
 import 'package:ppppppp/routes/routes.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'firebase_options.dart';
 import 'package:get/get.dart';
+
+SharedPreferences? sp;
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  print("--------------onBackgroundMessage--------------------");
+  print(message.notification!.title.toString());
+  print(message.notification!.body.toString());
+  print(message.data);
+  print("---------------onBackgroundMessage-------------------");
+}
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await GetStorage.init();
+  await Get.putAsync(() => StorageService().init());
+  sp = await SharedPreferences.getInstance();
   AppBinding().dependencies();
-  await Get.putAsync(() => SettingServices().init());
+  // await Get.putAsync(() async => SettingServices().init());
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  //FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   runApp(NoteAPP());
 }
 
@@ -27,8 +43,6 @@ class NoteAPP extends StatefulWidget {
 }
 
 class _NoteAPPState extends State<NoteAPP> {
-
-
   @override
   Widget build(BuildContext context) {
     //Set the fit size (Find your UI design, look at the dimensions of the device screen and fill it in,unit in dp)
@@ -37,7 +51,7 @@ class _NoteAPPState extends State<NoteAPP> {
       minTextAdapt: true,
       splitScreenMode: true,
       // Use builder only if you need to use library outside ScreenUtilInit context
-      builder: (_ , child) {
+      builder: (_, child) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'First Method',
@@ -49,12 +63,10 @@ class _NoteAPPState extends State<NoteAPP> {
           ),
           home: child,
           initialBinding: AppBinding(),
-          initialRoute:(FirebaseAuth.instance.currentUser != null&&FirebaseAuth.instance.currentUser!.emailVerified)? AppRoute.EntryPage:AppRoute.SingIn,
-          //initialRoute: AppRoute.TestPage ,
-          getPages:route,
-
+          //initialRoute:(FirebaseAuth.instance.currentUser != null&&FirebaseAuth.instance.currentUser!.emailVerified)? AppRoute.EntryPage:AppRoute.SingIn,
+          initialRoute: AppRoute.SingIn,
+          getPages: route,
         );
-
       },
       //child: SplashScreen(),
     );
@@ -63,9 +75,7 @@ class _NoteAPPState extends State<NoteAPP> {
   @override
   void initState() {
     super.initState();
-    FirebaseAuth.instance
-        .authStateChanges()
-        .listen((User? user) {
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {
       if (user == null) {
         print('User is currently signed out!');
       } else {
@@ -74,4 +84,3 @@ class _NoteAPPState extends State<NoteAPP> {
     });
   }
 }
-

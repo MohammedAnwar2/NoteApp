@@ -28,8 +28,7 @@ class UpdateNote extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: CustomFormField(
-                  oldName:NoteController.instance.getSnapshot.data!.docs[NoteController.instance.getIndex]["title"].toString() ,
+                child: CustomFormField(oldName:NoteController.instance.getSnapshot.data!.docs[NoteController.instance.getIndex]["title"].toString() ,
                   controller: title,
                   hintText: "",
                   valid: (value) {
