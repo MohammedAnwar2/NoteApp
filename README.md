@@ -46,7 +46,7 @@ Customize your app experience with **K Note**'s settings! 🛠️
 ---
 
 ### 4. **Search & View All Categories 🔍📂**
-![Search and Categories](assets/screenshots/SEARCH and CATEGORIES.png)
+![Search and Categories](assets/screenshots/SEARCH_and_CATEGORIES.png)
 
 Find your notes quickly and efficiently with **K Note**'s search and categorization features! 🔎📂
 
