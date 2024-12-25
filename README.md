@@ -59,9 +59,8 @@ Find your notes quickly and efficiently with **K Note**'s search and categorizat
 
 ---
 
-### **📬 Contact Us 📬**
-![Contact Us](assets/screenshots/Contact_Us.png)
 
+### **📬 Contact Us 📬**
 If you have any questions or need assistance, or if you'd like to discuss suggestions or improvements, feel free to reach out to us! We are here to help! 🤗💬
 
 - **Email:** moanbm123@gmail.com 📧
