@@ -1,4 +1,4 @@
-# **K Note** 📝✨
+# **K Note App** 📝✨
 
 Welcome to **K Note**! 🌟📝 This app is here to revolutionize your note-taking experience with a vast selection of features, all at your fingertips! With its sleek design, powerful functionalities, and an intuitive user interface, **K Note** guarantees a fun, fast, and seamless note-taking journey for everyone! ✨🚀
 
