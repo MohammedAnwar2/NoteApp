@@ -24,7 +24,7 @@ Logging in, registering, and resetting your password has never been easier or mo
 ---
 
 ### 2. **Create, Read, Update, Delete (CRUD) Notes 📝🗑️**
-![CRUD Notes](assets/screenshots/CRUD_Notes.png)
+![CRUD Notes](assets/screenshots/CRUD.png)
 
 Manage your notes effortlessly with **K Note**'s CRUD functionalities! 📋🖊️
 
@@ -38,7 +38,7 @@ Manage your notes effortlessly with **K Note**'s CRUD functionalities! 📋🖊�
 ---
 
 ### 3. **Settings ⚙️🛠️**
-![Settings](assets/screenshots/Settings.png)
+![Settings](assets/screenshots/SETTINGS.png)
 
 Customize your app experience with **K Note**'s settings! 🛠️
 
@@ -50,7 +50,7 @@ Customize your app experience with **K Note**'s settings! 🛠️
 ---
 
 ### 4. **Search & View All Categories 🔍📂**
-![Search and Categories](assets/screenshots/Search_and_Categories.png)
+![Search and Categories](assets/screenshots/SEARCH and CATEGORIES.png)
 
 Find your notes quickly and efficiently with **K Note**'s search and categorization features! 🔎📂
 
